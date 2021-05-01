@@ -29,7 +29,5 @@
         ["(", ")"],
         ["\"", "\""],
         ["'", "'"]
-    ],
-    // keywords within the language
-    "wordPattern": "",
+    ]
 }
