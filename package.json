@@ -1,0 +1,25 @@
+{
+    "name": "junkie",
+    "displayName": "Junkie",
+    "description": "Syntax highlighting for the Hash programming language",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.55.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "hash",
+            "aliases": ["Hash", "hash"],
+            "extensions": [".hash"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "hash",
+            "scopeName": "source.hash",
+            "path": "./syntaxes/hash.tmLanguage.json"
+        }]
+    }
+}

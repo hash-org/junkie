@@ -1,0 +1,440 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "fileTypes": ["hash"],
+    "name": "Hash",
+    "patterns": [
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#punctuation"
+        },
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#types"
+        },
+        {
+            "include": "#constants"
+        },
+        {
+            "include": "#functions"
+        },
+        {
+            "include": "#variables"
+        },
+        {
+            "include": "#strings"
+        }
+    ],
+    "repository": {
+        "constants": {
+            "patterns": [
+                {
+                    "match": "(?<!\\$)\\b(true|false)\\b(?!\\$)",
+                    "name": "constant.language.bool.hash"
+                },
+                {
+                    "comment": "decimal integers and floats",
+                    "name": "constant.numeric.hash",
+                    "match": "\\b\\d[\\d_]*(\\.?)[\\d_]*([eE]([+-])?([\\d_]+))?\\b"
+                },
+                {
+                    "comment": "hexadecimal integers",
+                    "name": "constant.numeric.hex.hash",
+                    "match": "\\b0x[\\da-fA-F_]+\\b",
+                    "captures": {
+                        "1": {
+                            "name": "entity.name.type.numeric.hash"
+                        }
+                    }
+                },
+                {
+                    "comment": "octal integers",
+                    "name": "constant.numeric.oct.hash",
+                    "match": "\\b0o[0-7_]+\\b",
+                    "captures": {
+                        "1": {
+                            "name": "entity.name.type.numeric.hash"
+                        }
+                    }
+                },
+                {
+                    "comment": "binary integers",
+                    "name": "constant.numeric.bin.hash",
+                    "match": "\\b0b[01_]+\\b",
+                    "captures": {
+                        "1": {
+                            "name": "entity.name.type.numeric.hash"
+                        }
+                    }
+                },
+				{
+                    "comment": "Matching type arguments",
+                    "name": "support.type.typevar.hash",
+                    "match": "\\b([A-Z])\\b"
+                }
+            ]
+        },
+        "functions": {
+            "patterns": [
+                {
+                    "comment": "Common built-in hash functions",
+                    "name": "support.function.hash",
+                    "match": "\\b(panic|input|print|conv|iter)\\b"
+                },
+                {
+                    "comment": "function definition",
+                    "name": "meta.function.definition.hash",
+                    "begin": "\\b(let)\\s+([A-Za-z0-9_]+)((\\()|(<))",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "storage.type.hash"
+                        },
+                        "2": {
+                            "name": "entity.name.function.hash"
+                        },
+                        "4": {
+                            "name": "punctuation.brackets.round.hash"
+                        },
+                        "5": {
+                            "name": "punctuation.brackets.angle.hash"
+                        }
+                    },
+                    "end": "\\{|;",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.brackets.curly.hash"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#comments"
+                        },
+                        {
+                            "include": "#keywords"
+                        },
+						{
+							"include": "#constants"
+						},
+                        {
+                            "include": "#variables"
+                        },
+                        {
+                            "include": "#types"
+                        },
+                        {
+                            "include": "#functions"
+                        },
+                        {
+                            "include": "#punctuation"
+                        },
+                        {
+                            "include": "#strings"
+                        }
+                    ]
+                },
+                {
+                    "comment": "function/method calls",
+                    "name": "meta.function.call.hash",
+                    "begin": "((#)?[a-zA-Z_][a-zA-Z0-9_$]*)(<|\\()",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "entity.name.function.hash"
+                        },
+                        "2": {
+                            "name": "punctuation.brackets.round.hash"
+                        }
+                    },
+                    "end": "\\)",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.brackets.round.hash"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#comments"
+                        },
+                        {
+                            "include": "#keywords"
+                        },
+                        {
+                            "include": "#types"
+                        },
+                        {
+                            "include": "#variables"
+                        },
+                        {
+                            "include": "#functions"
+                        },
+                        {
+                            "include": "#punctuation"
+                        },
+                        {
+                            "include": "#strings"
+                        }
+                    ]
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "match": "(?<!\\$)\\bas\\b(?!\\$)",
+                    "name": "keyword.cast.hash"
+                },
+                {
+                    "match": "(?<!\\$)\\b(if|else|match|loop|while|for|in|break|continue|return|import)\\b(?!\\$)",
+                    "name": "keyword.control.hash"
+                },
+                {
+                    "match": "(?<!\\$)\\bassert\\b(?!\\$)",
+                    "name": "keyword.control.hash"
+                },
+                {
+                    "match": "(?<!\\$)\\b(let|struct|enum|trait|where)\\b(?!\\$)",
+                    "name": "keyword.declaration.hash"
+                },
+                {
+                    "match": "(<<|>>|~|\\^|\\||&)",
+                    "name": "keyword.operator.bitwise.hash"
+                },
+                {
+                    "match": "((&|\\^|\\||<<|>>)=)",
+                    "name": "keyword.operator.assignment.bitwise.hash"
+                },
+                {
+                    "match": "(=>)",
+                    "name": "keyword.operator.closure.hash"
+                },
+                {
+                    "match": "(===?|!=|<=?|>=?)",
+                    "name": "keyword.operator.comparison.hash"
+                },
+                {
+                    "match": "(([+*/%-]|\\~)=)",
+                    "name": "keyword.operator.assignment.arithmetic.hash"
+                },
+                {
+                    "match": "(=)",
+                    "name": "keyword.operator.assignment.hash"
+                },
+                {
+                    "match": "(\\-|\\+|\\*|\\/|\\~\\/|%)",
+                    "name": "keyword.operator.arithmetic.hash"
+                },
+                {
+                    "match": "(!|&&|\\|\\|)",
+                    "name": "keyword.operator.logical.hash"
+                },
+                {
+                    "match": "((&&|\\|\\|)=)",
+                    "name": "keyword.operator.assignment.logical.hash"
+                },
+                {
+                    "name": "storage.type.hash",
+                    "match": "\\b(enum|struct|let|trait)\\b"
+                }
+            ]
+        },
+        "types": {
+            "patterns": [
+                {
+                    "comment": "parameterised types",
+                    "begin": "\\b([A-Z][A-Za-z0-9]*)(<)",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "entity.name.type.hash"
+                        },
+                        "2": {
+                            "name": "punctuation.brackets.angle.hash"
+                        }
+                    },
+                    "end": ">",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.brackets.angle.hash"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#block-comments"
+                        },
+                        {
+                            "include": "#comments"
+                        },
+                        {
+                            "include": "#keywords"
+                        },
+                        {
+                            "include": "#types"
+                        },
+                        {
+                            "include": "#variables"
+                        },
+                        {
+                            "include": "#punctuation"
+                        }
+                    ]
+                },
+                {
+                    "comment": "primitive types",
+                    "name": "entity.name.type.primitive.hash",
+                    "match": "\\b(bool|char|str|int|float|void|never)\\b"
+                },
+                {
+                    "comment": "trait declarations",
+                    "match": "\\b(trait)\\s+([A-Z][A-Za-z0-9]*)\\b",
+                    "captures": {
+                        "1": {
+                            "name": "storage.type.hash"
+                        },
+                        "2": {
+                            "name": "entity.name.type.trait.hash"
+                        }
+                    }
+                },
+                {
+                    "comment": "struct declarations",
+                    "match": "\\b(struct)\\s+([A-Z][A-Za-z0-9]*)\\b",
+                    "captures": {
+                        "1": {
+                            "name": "storage.type.hash"
+                        },
+                        "2": {
+                            "name": "entity.name.type.struct.hash"
+                        }
+                    }
+                },
+                {
+                    "comment": "enum declarations",
+                    "match": "\\b(enum)\\s+([A-Z][A-Za-z0-9_]*)\\b",
+                    "captures": {
+                        "1": {
+                            "name": "storage.type.hash"
+                        },
+                        "2": {
+                            "name": "entity.name.type.enum.hash"
+                        }
+                    }
+                },
+                {
+                    "comment": "types",
+                    "name": "entity.name.type.hash",
+                    "match": "\\b[A-Z][A-Za-z0-9]*\\b(?!!)"
+                }
+            ]
+        },
+        "variables": {
+            "patterns": [
+                {
+                    "comment": "variables",
+                    "name": "variable.other.rust",
+                    "match": "\\b(?<!(?<!\\.)\\.)[a-z0-9_]+\\b"
+                }
+            ]
+        },
+        "strings": {
+            "patterns": [
+                {
+                    "name": "string.quoted.double.hash",
+                    "begin": "\"",
+                    "end": "\"",
+                    "patterns": [
+                        {
+                            "name": "constant.character.escape.hash",
+                            "match": "\\\\."
+                        },
+                        {
+                            "match": "\\n",
+                            "name": "invalid.string.newline"
+                        }
+                    ]
+                },
+                {
+                    "begin": "\\'",
+                    "end": "\\'",
+                    "name": "string.quoted.single.hash",
+                    "patterns": [
+                        {
+                            "match": "\\n",
+                            "name": "invalid.string.newline"
+                        }
+                    ]
+                }
+            ]
+        },
+        "comments": {
+            "patterns": [
+                {
+                    "captures": {
+                        "0": {
+                            "name": "punctuation.definition.comment.hash"
+                        }
+                    },
+                    "match": "/\\*\\*/",
+                    "name": "comment.block.empty.hash"
+                },
+                {
+                    "include": "#comments-inline"
+                }
+            ]
+        },
+        "comments-inline": {
+            "patterns": [
+                {
+                    "include": "#comments-block"
+                },
+                {
+                    "captures": {
+                        "1": {
+                            "name": "comment.line.double-slash.hash"
+                        }
+                    },
+                    "match": "((//).*)$"
+                }
+            ]
+        },
+        "comments-block": {
+            "patterns": [
+                {
+                    "begin": "/\\*",
+                    "end": "\\*/",
+                    "name": "comment.block.hash",
+                    "patterns": [
+                        {
+                            "include": "#comments-block"
+                        }
+                    ]
+                }
+            ]
+        },
+        "punctuation": {
+            "patterns": [
+                {
+                    "match": ",",
+                    "name": "punctuation.comma.hash"
+                },
+                {
+                    "match": ";",
+                    "name": "punctuation.terminator.hash"
+                },
+                {
+                    "match": "\\.",
+                    "name": "punctuation.dot.hash"
+                },
+                {
+                    "match": "\\.\\.\\.",
+                    "name": "punctuation.spread.hash"
+                },
+                {
+                    "match": "\\:\\:",
+                    "name": "punctuation.namespace.hash"
+                }
+            ]
+        }
+    },
+    "scopeName": "source.hash"
+}
