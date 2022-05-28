@@ -9,6 +9,10 @@ Hash programming language Visual Studio Code IDE support.
 
 ## Release Notes
 
+### 0.0.2
+
+- Updated grammar to support new syntax of the language
+
 ### 0.0.1
 
 Development release of IDE support for hash lang.
