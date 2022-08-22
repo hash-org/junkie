@@ -2,9 +2,13 @@
     "name": "junkie",
     "displayName": "Junkie",
     "publisher": "hash-lang",
-    "repository": "https://github.com/hash-org/junkie",
     "description": "Syntax highlighting for the Hash programming language",
-    "version": "0.0.2",
+    "version": "0.0.3",
+    "icon": "img/hash.png",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/hash-org/junkie"
+    },
     "engines": {
         "vscode": "^1.55.0"
     },
