@@ -5,7 +5,8 @@
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file. -->
 
 ## 0.0.3
-
+- Fix numeric constants not being highlighted within function calls.
+- Fix bug with escaped characters not being highlighted or breaking highlighting.
 - Add support for numeric suffixes to denote specific numeric types.
 
 ## 0.0.2
