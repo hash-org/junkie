@@ -1,7 +1,7 @@
 {
     "name": "junkie",
     "displayName": "Junkie",
-    "publisher": "hash-org",
+    "publisher": "hash-lang",
     "description": "Syntax highlighting for the Hash programming language",
     "version": "0.0.3",
     "icon": "img/hash.png",
