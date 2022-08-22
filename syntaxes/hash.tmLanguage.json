@@ -44,12 +44,12 @@
                 {
                     "comment": "decimal integers and floats",
                     "name": "constant.numeric.hash",
-                    "match": "\\b\\d[\\d_]*(\\.?)[\\d_]*([eE]([+-])?([\\d_]+))?\\b"
+                    "match": "\\b\\d[\\d_]*(\\.?)[\\d_]*([eE]([+-])?([\\d_]+))?(f32|f64|i128|i16|i32|i64|i8|isize|ibig|u128|u16|u32|u64|u8|usize|ubig)?\\b"
                 },
                 {
                     "comment": "hexadecimal integers",
                     "name": "constant.numeric.hex.hash",
-                    "match": "\\b0x[\\da-fA-F_]+\\b",
+                    "match": "\\b0x[\\da-fA-F_]+(i128|i16|i32|i64|i8|isize|ibig|u128|u16|u32|u64|u8|usize|ubig)?\\b",
                     "captures": {
                         "1": {
                             "name": "entity.name.type.numeric.hash"
@@ -59,7 +59,7 @@
                 {
                     "comment": "octal integers",
                     "name": "constant.numeric.oct.hash",
-                    "match": "\\b0o[0-7_]+\\b",
+                    "match": "\\b0o[0-7_]+(i128|i16|i32|i64|i8|isize|ibig|u128|u16|u32|u64|u8|usize|ubig)?\\b",
                     "captures": {
                         "1": {
                             "name": "entity.name.type.numeric.hash"
@@ -69,7 +69,7 @@
                 {
                     "comment": "binary integers",
                     "name": "constant.numeric.bin.hash",
-                    "match": "\\b0b[01_]+\\b",
+                    "match": "\\b0b[01_]+(i128|i16|i32|i64|i8|isize|ibig|u128|u16|u32|u64|u8|usize|ubig)?\\b",
                     "captures": {
                         "1": {
                             "name": "entity.name.type.numeric.hash"
