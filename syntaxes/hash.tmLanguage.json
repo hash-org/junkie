@@ -121,6 +121,9 @@
                     },
                     "patterns": [
                         {
+                            "include": "#constants"
+                        },
+                        {
                             "include": "#comments"
                         },
                         {
