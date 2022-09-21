@@ -25,6 +25,9 @@
             "include": "#call"
         },
         {
+            "include": "#directives"
+        },
+        {
             "include": "#indexing"
         },
         {
@@ -139,12 +142,33 @@
                             "include": "#functions"
                         },
                         {
+                            "include": "#directives"
+                        },
+                        {
                             "include": "#punctuation"
                         },
                         {
                             "include": "#strings"
                         }
                     ]
+                }
+            ]
+        },
+        "directives": {
+            "patterns": [
+                {
+                    "comment": "directives calls",
+                    "name": "meta.call.directive.hash",
+                    "begin": "(#)(?:\\w|_)(?:\\w|_|[0-9])*",
+                    "end": "\\s|(|\\{|\\[|\\'|\"",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "support.directive.call.hash"
+                        },
+                        "1": {
+                            "name": "punctuation.directive.attribute.hash"
+                        }
+                    }
                 }
             ]
         },
@@ -242,6 +266,9 @@
                         },
                         {
                             "include": "#call"
+                        },
+                        {
+                            "include": "#directives"
                         },
                         {
                             "include": "#indexing"
@@ -348,6 +375,9 @@
                         },
                         {
                             "include": "#types"
+                        },
+                        {
+                            "include": "#directives"
                         },
                         {
                             "include": "#variables"
