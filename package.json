@@ -3,7 +3,7 @@
     "displayName": "Junkie",
     "publisher": "hash-lang",
     "description": "Syntax highlighting for the Hash programming language",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "icon": "img/hash.png",
     "repository": {
         "type": "git",
