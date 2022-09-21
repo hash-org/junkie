@@ -4,6 +4,9 @@
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file. -->
 
+## 0.0.4
+- Add `directives` to syntax highlighting.
+
 ## 0.0.3
 - Fix numeric constants not being highlighted within function calls.
 - Fix bug with escaped characters not being highlighted or breaking highlighting.
