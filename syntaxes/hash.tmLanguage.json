@@ -341,6 +341,10 @@
                 {
                     "name": "storage.type.hash",
                     "match": "\\b(enum|struct|trait|type)\\b"
+                },
+                {
+                    "match": "\\b(typeof)\\b",
+                    "name": "keyword.operator.typeof.hash"
                 }
             ]
         },
