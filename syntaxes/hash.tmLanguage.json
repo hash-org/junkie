@@ -230,10 +230,10 @@
                     "begin": "((?:\\w|_)(?:\\w|_|[0-9])*)\\s*(=>)",
                     "beginCaptures": {
                         "1": {
-                            "name": "punctuation.begin.bracket"
+                            "name": "keyword.arrow.thin.hash"
                         },
                         "2": {
-                            "name": "keyword.operator.closure.hash"
+                            "name": "keyword.arrow.thin.hash"
                         }
                     },
                     "end": "\\{|;",
@@ -311,16 +311,20 @@
                     "name": "keyword.operator.assignment.bitwise.hash"
                 },
                 {
-                    "match": "(=>)",
-                    "name": "keyword.operator.closure.hash"
-                },
-                {
                     "match": "(==?|!=|<=?|>=?)",
                     "name": "keyword.operator.comparison.hash"
                 },
                 {
                     "match": "(([+*/%-]|\\~)=)",
                     "name": "keyword.operator.assignment.arithmetic.hash"
+                },
+                {
+                    "match": "(\\=\\>)",
+                    "name": "keyword.arrow.fat.hash"
+                },
+                {
+                    "match": "(\\-\\>)",
+                    "name": "keyword.arrow.thin.hash"
                 },
                 {
                     "match": "(=)",
@@ -403,6 +407,10 @@
                 {
                     "name": "storage.modifier.mutable.hash",
                     "match": "\\b(mut)\\b"
+                },
+                {
+                    "name": "storage.pointer.modifier.hash",
+                    "match": "\\b(raw)\\b"
                 },
                 {
                     "comment": "trait declarations",
